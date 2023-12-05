@@ -1,0 +1,89 @@
+{% extends "layouts.html" %}
+{% block title %}Strava Running Forecast{% endblock %}
+{% block content %}
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container justify-content-center">
+            <div class="row">
+                <div class="col-md">
+                    <h1 class="display-1 text-white text-center">Strava Running Forecast</h1>
+                    <h2 class="text-white fw-light text-center">How does the weather affect your running?</h2>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<main>
+    </section>
+    <section class="hero my-5">
+        <div class="container text-center">
+            <a href="https://www.strava.com/oauth/authorize?client_id=111442&redirect_uri=http://localhost&response_type=code&scope=read_all,profile:read_all,activity:read_all" class="btn btn-link btn-lg btn-custom btn-image">
+                <img src="{{url_for('static',filename='strava_button.png')}}" alt="Strava image">
+            </a>
+            <p class="text-secondary">Connect with Strava above, <em>authorize</em>, then copy the corresponding code in the url before coming back to this page</p>
+            <form action="/running_data" method="post">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="beginning-of-url">http://localhost/?state=&code=</span>
+                    <input type="text" class="form-control" placeholder="code" name="codeInput">
+                    <span class="input-group-text" id="end-of-url">&scope=read,activity:read_all,profile:read_all,read_all</span>
+                </div>
+                <button type="submit" class="btn btn-success">See Your Data</button>
+            </form>
+        </div>
+    </section>
+
+    <section class="features py-5">
+        
+        <div class="container">
+            <h2 class="text-center mb-4">Features</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-4 mb-4">
+                    <div class="card text-center p-1">
+                        <img src="{{url_for('static',filename='lactatemeter.jpg')}}" alt="Lactate meter" class="mb-3">
+                        <h3 class="h5">Figure out your limits</h3>
+                        <p>Explore your running data based on the weather</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-4 mb-4">
+                    <div class="card text-center p-1">
+                        <img src="{{url_for('static',filename='analytics.png')}}" alt="Analytics" class="mb-3">
+                        <h3 class="h5">Track Your Progress</h3>
+                        <p>Monitor your progress and performance over time.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-4 mb-4">
+                    <div class="card text-center p-1">
+                        <img src="{{url_for('static',filename='comparision.png')}}" alt="Comparision with others" class="mb-3">
+                        <h3 class="h5">Compare with Others</h3>
+                        <p>Coming soon</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="bg-dark text-white px-0 py-3">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md">
+                <a href="https://www.strava.com" class="btn-link">
+                    <img src="{{url_for('static',filename='powered_by_strava.png')}}" alt="Powered by Strava">
+                </a>
+            </div>
+            <div class="col-md d-flex align-items-center justify-content-end">
+                    <p>&copy; 2023 <a href="http://www.linkedin.com/in/alex-brown0">Alex Brown</a> </p>
+            </div>
+        </div>
+    </div>
+</footer>
+</section>
+</main>
+
+
+{% endblock %}
